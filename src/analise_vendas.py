@@ -2,27 +2,44 @@ import pandas as pd
 
 df = pd.read_csv("data/vendas.csv")
 
-total_vendas = len(df)
-faturamento_total = df["preco"].sum()
-ticket_medio = df["preco"].mean()
-vendas_por_modelo = df["modelo"].value_counts()
-vendas_pagamento = df["forma_pagamento"].value_counts()
-vendas_cidade = df["cidade"].value_counts()
+def carregar_dados(caminho_arquivo):
+    """Carrega o dataset de vendas"""
+    return pd.read_csv(caminho_arquivo)
 
-print("- MÉTRICAS GERAIS -")
-print("-------------------")
-print(f"Total de vendas: {total_vendas}")
-print(f"Faturamento total: {faturamento_total:,.2f}")
-print(f"Ticket Médio: {ticket_medio:,.2f}")
+def mostrar_metricas_gerais(df):
+    total_vendas = len(df)
+    faturamento_total = df["preco"].sum()
+    ticket_medio = df["preco"].mean()
 
-print("\nVENDAS POR MODELO")
-print("-------------------")
-print(vendas_por_modelo)
+    print("MÉTRICAS GERAIS")
+    print("_________________")
+    print(f"Total de vendas: {total_vendas}")
+    print(f"Faturamento total: R$ {faturamento_total:,.2f}")
+    print(f"Ticket médio: R$ {ticket_medio:,.2f}")
 
-print("\nVENDAS POR FORMA DE PAGAMENTO")
-print("-------------------")
-print(vendas_pagamento)
+def vendas_por_modelo(df):
+    print("\nVENDAS POR MODELO")
+    print("-----------------")
+    print(df["modelo"].value_counts())
 
-print("\nVENDAS POR CIDADE")
-print("-------------------")
-print(vendas_cidade)
+def vendas_por_pagamento(df):
+    print("\nVENDAS POR FORMA DE PAGAMENTO")
+    print("---------------------------")
+    print(df["forma_pagamento"].value_counts())
+
+def vendas_por_cidade(df):
+    print("\nVENDAS POR CIDADE")
+    print("----------------")
+    print(df["cidade"].value_counts())
+
+def main():
+    df = carregar_dados("data/vendas.csv")
+
+    mostrar_metricas_gerais(df)
+    vendas_por_modelo(df)
+    vendas_por_pagamento(df)
+    vendas_por_cidade(df)
+
+
+if __name__ == "__main__":
+    main()
