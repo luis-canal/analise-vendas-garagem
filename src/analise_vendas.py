@@ -1,4 +1,8 @@
-from visualizacoes import grafico_vendas_por_modelo
+from visualizacoes import (
+    grafico_vendas_por_modelo,
+    grafico_vendas_por_pagamento,
+    grafico_vendas_por_cidade,
+)
 from analises import (
     carregar_dados,
     mostrar_metricas_gerais,
@@ -16,6 +20,8 @@ def main():
     vendas_por_cidade(df)
 
     grafico_vendas_por_modelo(df)
+    grafico_vendas_por_pagamento(df)
+    grafico_vendas_por_cidade(df)
 
 if __name__ == "__main__":
     main()
