@@ -1,7 +1,11 @@
 import tkinter as tk
 import pandas as pd
-from visualizacoes import grafico_vendas_por_modelo
-
+from visualizacoes import (
+    grafico_vendas_por_modelo,
+    grafico_metodo_venda,
+    grafico_tempo_estoque,
+    grafico_troca
+) 
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -77,33 +81,30 @@ class App(tk.Tk):
 
     def metodos_venda(self):
         self.limpar_conteudo()
-        label = tk.Label(
-            self.conteudo,
-            text="Análise dos Métodos de Venda",
-            font=("Arial", 18),
-            bg="white"
-        )
-        label.pack(pady=20)
+        df = self.carregar_dados()
+
+        titulo = tk.Label(self.conteudo, text="Métodos de Venda", font=("Arial", 18), bg="white")
+        titulo.pack(pady=10)
+
+        grafico_metodo_venda(df, self.conteudo)
 
     def tempo_estoque(self):
         self.limpar_conteudo()
-        label = tk.Label(
-            self.conteudo,
-            text="Tempo de Estoque dos Veículos",
-            font=("Arial", 18),
-            bg="white"
-        )
-        label.pack(pady=20)
+        df = self.carregar_dados()
+
+        titulo = tk.Label(self.conteudo, text="Tempo de Estoque", font=("Arial", 18), bg="white")
+        titulo.pack(pady=10)
+
+        grafico_tempo_estoque(df, self.conteudo)
 
     def troca(self):
         self.limpar_conteudo()
-        label = tk.Label(
-            self.conteudo,
-            text="Vendas com Troca vs Sem Troca",
-            font=("Arial", 18),
-            bg="white"
-        )
-        label.pack(pady=20)
+        df = self.carregar_dados()
+
+        titulo = tk.Label(self.conteudo, text="Troca", font=("Arial", 18), bg="white")
+        titulo.pack(pady=10)
+
+        grafico_troca(df, self.conteudo)
 
 
 if __name__ == "__main__":
