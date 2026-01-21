@@ -1,15 +1,21 @@
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-def grafico_vendas_por_modelo(df):
+
+def grafico_vendas_por_modelo(df, frame):
     vendas = df["modelo"].value_counts()
-    
-    plt.figure()
-    vendas.plot(kind="bar")
-    plt.title("Vendas por Modelo")
-    plt.xlabel("Modelo")
-    plt.ylabel("Quantidade de Vendas")
-    plt.tight_layout()
-    plt.show()
+
+    fig, ax = plt.subplots(figsize=(6, 4))
+    vendas.plot(kind="bar", ax=ax)
+
+    ax.set_title("Vendas por Modelo")
+    ax.set_xlabel("Modelo")
+    ax.set_ylabel("Quantidade")
+
+    canvas = FigureCanvasTkAgg(fig, master=frame)
+    canvas.draw()
+    canvas.get_tk_widget().pack(pady=20)
+
 
 def grafico_vendas_por_pagamento(df):
     vendas = df["forma_pagamento"].value_counts()
