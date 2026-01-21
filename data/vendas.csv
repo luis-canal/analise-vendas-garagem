@@ -1,11 +1,11 @@
-data_venda,modelo,ano,preco,forma_pagamento,cidade
-2024-01-10,Corolla XEI,2015,68500,Financiamento,David Canabarro
-2024-01-15,Gol Trend,2014,38900,À vista,Marau
-2024-02-03,Onix LT,2019,54900,Financiamento,Passo Fundo
-2024-02-20,HB20 Comfort,2018,51500,À vista,Passo Fundo
-2024-03-05,Corolla GLI,2016,72900,Financiamento,Marau
-2024-03-18,Onix LT,2020,58900,Financiamento,David Canabarro
-2024-04-02,Fiesta SE,2015,42900,À vista,Passo Fundo
-2024-04-19,HB20 Comfort,2019,55900,Financiamento,Marau
-2024-05-07,Corolla XEI,2017,78900,Financiamento,Passo Fundo
-2024-05-21,Gol Trend,2013,34900,À vista,David Canabarro
+data_entrada,data_venda,modelo,ano,preco,forma_pagamento,troca,cidade
+2023-12-01,2024-01-10,Corolla XEI,2015,68500,Financiamento,Sim,David Canabarro
+2023-12-20,2024-01-15,Gol Trend,2014,38900,À vista,Não,Marau
+2024-01-05,2024-02-03,Onix LT,2019,54900,Mista,Sim,Passo Fundo
+2024-01-25,2024-02-20,HB20 Comfort,2018,51500,À vista,Não,Passo Fundo
+2024-02-01,2024-03-05,Corolla GLI,2016,72900,Cheque,Sim,Marau
+2024-02-15,2024-03-18,Onix LT,2020,58900,Financiamento,Não,David Canabarro
+2024-03-01,2024-04-02,Fiesta SE,2015,42900,À vista,Não,Passo Fundo
+2024-03-10,2024-04-19,HB20 Comfort,2019,55900,Mista,Sim,Marau
+2024-03-20,2024-05-07,Corolla XEI,2017,78900,Financiamento,Não,Passo Fundo
+2024-04-01,2024-05-21,Gol Trend,2013,34900,Cheque,Não,David Canabarro

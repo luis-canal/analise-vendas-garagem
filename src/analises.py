@@ -3,15 +3,14 @@ import pandas as pd
 
 def carregar_dados(caminho_arquivo):
     """
-    Carrega o dataset de vendas a partir de um arquivo CSV.
-
-    Parâmetros:
-    caminho_arquivo (str): caminho para o arquivo CSV
-
-    Retorno:
-    DataFrame pandas com os dados de vendas
+    Carrega o dataset de vendas e converte datas.
     """
-    return pd.read_csv(caminho_arquivo)
+    df = pd.read_csv(caminho_arquivo, parse_dates=["data_entrada", "data_venda"])
+
+    df["tempo_estoque_dias"] = (df["data_venda"] - df["data_entrada"]).dt.days
+
+    return df
+
 
 
 def mostrar_metricas_gerais(df):
@@ -57,3 +56,18 @@ def vendas_por_cidade(df):
     print("\nVENDAS POR CIDADE")
     print("----------------")
     print(df["cidade"].value_counts())
+
+def analise_tempo_estoque(df):
+    """
+    Exibe métricas relacionadas ao tempo de estoque.
+    """
+    print("\nTEMPO DE ESTOQUE")
+    print("----------------")
+    print(f"Tempo médio em estoque: {df['tempo_estoque_dias'].mean():.1f} dias")
+    print(f"Menor tempo em estoque: {df['tempo_estoque_dias'].min()} dias")
+    print(f"Maior tempo em estoque: {df['tempo_estoque_dias'].max()} dias")
+
+def analise_troca(df):
+    print("\nVENDAS COM TROCA")
+    print("----------------")
+    print(df["troca"].value_counts())

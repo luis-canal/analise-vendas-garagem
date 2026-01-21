@@ -9,6 +9,8 @@ from analises import (
     vendas_por_cidade,
     vendas_por_modelo,
     vendas_por_pagamento,
+    analise_tempo_estoque,
+    analise_troca,
 )
 
 def main():
@@ -18,6 +20,8 @@ def main():
     vendas_por_modelo(df)
     vendas_por_pagamento(df)
     vendas_por_cidade(df)
+    analise_tempo_estoque(df)
+    analise_troca(df)
 
     grafico_vendas_por_modelo(df)
     grafico_vendas_por_pagamento(df)
